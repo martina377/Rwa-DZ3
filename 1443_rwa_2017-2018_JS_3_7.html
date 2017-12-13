@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+  
+	</head>
+<body>
+    
+    <form>
+        Operand 1 <input type="text" name="broj1" id="broj1" required></br>
+        Operand 2 <input type="text" name="broj2" id="broj2"></br>
+
+        <input type="button" value="+" onclick="funkcija('zbroji')">
+        <input type="button" value="-" onclick="funkcija('oduzmi')">
+        <input type="button" value="*" onclick="funkcija('mnozi')">
+        <input type="button" value="/" onclick="funkcija('dijeli')"></br>
+        <input type="button" value="sin" onclick="funkcija('sinus')">
+        <input type="button" value="cos" onclick="funkcija('kosinus')">
+        <input type="button" value="tan" onclick="funkcija('tangens')"></br>
+        <input type="button" value="ln" onclick="funkcija('logaritampr')">
+        <input type="button" value="log" onclick="funkcija('logaritam')"></br>
+        <input type="button" value="^2" onclick="funkcija('kvadriranje')">
+        <input type="button" value="^3" onclick="funkcija('kubiranje')">
+        <input type="button" value="^n" onclick="funkcija('potencija')">
+    </form>
+	
+    <script type="text/javascript">
+	
+	var broj1rac = document.getElementById("broj1");
+	var broj2rac = document.getElementById("broj2");
+
+	function funkcija(naziv){
+	
+		var rezultat;
+		var broj1 = parseInt(broj1rac.value);
+		var broj2 = parseInt(broj2rac.value);
+
+		switch(naziv){
+			case "zbroji":
+				rezultat = broj1 + broj2;
+				break;
+			case "oduzmi":
+				rezultat = broj1 - broj2;
+				break;
+			case "mnozi":
+				rezultat = broj1 * broj2;
+				break;
+			case "dijeli":
+				rezultat = broj1 / broj2;
+				break;
+			case "sinus":
+				rezultat = Math.sin(broj1);
+				break;
+			case "kosinus":
+				rezultat = Math.cos(broj1);
+				break;
+			case "tangens":
+				rezultat = Math.tan(broj1);
+				break;
+			case "logaritampr":
+				rezultat = Math.log(broj1);
+				break;
+			case "logaritam":
+				rezultat = Math.log10(broj1);
+				break;
+			case "kvadriranje":
+				rezultat = Math.pow(broj1, 2);
+				break;
+			case "kubiranje":
+				rezultat = Math.pow(broj1, 3);
+				break;
+			case "potencija":
+				rezultat = Math.pow(broj1, broj2);
+				break;
+			default:
+				rezultat = "Pogresan unos";
+				break;
+		}
+
+		alert("Rezultat: " + rezultat);
+	}
+
+
+	document.addEventListener("keydown", function(e){
+		if(e.keyCode == 13) {
+			e.preventDefault();
+			return false;
+		}
+	});
+    </script>
+</body>
+</html>

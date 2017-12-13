@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+  
+	</head>
+<body>
+    <form>
+        Unesite dan (01-31) <input type="text" name="dan" id="dan" required></br>
+        Unesite mjesec (01-12) <input type="text" name="mjesec" id="mjesec" required></br>
+        Unesite godinu (npr. 1970) <input type="text" name="godina" id="godina" required><br>
+        <input type="button" value="Izračunaj" onclick="izracunaj()">
+    </form>
+	
+    <script type="text/javascript">
+	
+	var dan = document.getElementById("dan");
+	var mjesec = document.getElementById("mjesec");
+	var godina = document.getElementById("godina");
+
+	function izracunaj(){
+		var danas = new Date();
+
+		var razlika = danas.getFullYear() - parseInt(godina.value);
+
+		if((danas.getMonth() + 1) <= parseInt(mjesec.value)){
+			if(danas.getDate() < parseInt(dan.value)){
+				razlika--;
+			}
+		}
+
+		alert("Imate " + razlika + " god.");
+
+	}
+
+	document.addEventListener("keydown", function(e){
+		if(e.keyCode == 13) {
+			e.preventDefault();
+			izracunaj();
+			return false;
+		}
+	});
+    </script>
+</body>
+</html>

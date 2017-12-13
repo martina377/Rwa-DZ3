@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+<body>
+    <form>
+        <input type="text" name="broj" id="broj">
+        <input type="button" value="Potvrdi" onclick="ispis()">
+    </form>
+    <div id="tekst"></div>
+    <script type="text/javascript">
+        var tekst = document.getElementById("tekst");
+        var broj = document.getElementById("broj");
+        function ispis() {
+            tekst.innerHTML = "";
+            for (var i = 2; i <= broj.value; i++) {
+                if (i % 2 == 0) {
+                    tekst.innerHTML += ("Broj: "+ i + " Kvadrat: " + i * i + "<br>");
+                }
+            }
+        }
+        document.addEventListener("keydown", function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                ispis();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
