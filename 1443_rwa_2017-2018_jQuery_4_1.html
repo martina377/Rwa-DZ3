@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[type="button"]').click(function () {
+                if ($('input[type="text"').val() % 2 == 0)
+                    alert("Matični broj je paran");
+                else
+                    alert("Matični broj je neparan");
+            })
+        })
+    </script>
+</head>
+<body>
+    Matični broj : <input id="mbr" type="text" placeholder="insert here...">
+    <br>
+    <input type="button" value="Provjera">
+</body>
+</html>
